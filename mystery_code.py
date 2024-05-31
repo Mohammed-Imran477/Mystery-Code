@@ -58,7 +58,11 @@ def check_code(guess, real_code):
             color_counts[guess_color] -= 1
 
     for guess_color, real_color in zip(guess, real_code):
-        if guess_color != real_color and guess_color in color_counts and color_counts[guess_color] > 0:
+        if (
+            guess_color != real_color
+            and guess_color in color_counts
+            and color_counts[guess_color] > 0
+        ):
             incorrect_pos += 1
             color_counts[guess_color] -= 1
 
@@ -79,7 +83,9 @@ def game():
             print(f"You guessed the code in {attempts} attempts!")
             break
 
-        print(f"Correct Positions: {correct_pos} | Incorrect Positions: {incorrect_pos}")
+        print(
+            f"Correct Positions: {correct_pos} | Incorrect Positions: {incorrect_pos}"
+        )
 
     else:
         print("You ran out of tries, the code was:", *code)
